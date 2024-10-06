@@ -1,0 +1,12 @@
+1. Make a Spring Boot application
+1.1 Create 3 users into the database (username and password)
+1.1 User has to log in with one of the users (user registration does not have to be implemented)
+1.2 User is displayed list of clients that he has entered. User is not allowed to see other user clients. (Sample html is provided with test assignment)
+1.3 User can add and edit clients (Sample html is provided with test assignment)
+1.4. When new client is saved validate all mandatory fields
+1.5 Store all input data to database
+1.6 Values of country select box has to be populated with data from database.
+
+Please provide us your project source code.
+
+Application has to run with 1 click. If front and back are in different projects then 1 click per project. If there are multiple projects (back and front). Use spring boot, embedded database and some database migration tool (liquibase, flyway) to execute sql scipts on startup.

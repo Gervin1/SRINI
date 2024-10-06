@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Client List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Clients</h2>
+    </div>
+    <div class="row">
+        <a href="/client" class="btn btn-primary">Add client</a>
+        <table class="table mt-3">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Username</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="client, iterStat : ${clients}">
+                <th scope="row" th:text="${iterStat.index + 1}">1</th>
+                <td th:text="${client.firstName}">First Name</td>
+                <td th:text="${client.lastName}">Last Name</td>
+                <td th:text="${client.username}">Username</td>
+                <td>
+                    <a th:href="@{/client/{id}(id=${client.id})}" class="btn btn-primary">Edit client</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+<footer class="footer">
+    <div class="container text-center">
+        <form th:action="@{/logout}" method="post" onsubmit="return confirm('Are you sure you want to logout?');">
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </form>
+    </div>
+</footer>
+
+</html>
